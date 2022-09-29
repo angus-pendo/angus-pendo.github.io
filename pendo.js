@@ -10,6 +10,7 @@
             pendo.initialize({
                 visitor: {
                     id:              'VISITOR_001'   // Required if user is logged in
+                    first_name: 'Angus'
                     // email:        // Recommended if using Pendo Feedback, or NPS Email
                     // full_name:    // Recommended if using Pendo Feedback
                     // role:         // Optional
