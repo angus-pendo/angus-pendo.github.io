@@ -46,4 +46,9 @@
     e.preventDefault();
   });
 
+  //Overwrite titles
+  var element = document.getElementById('sidebar-brand-text mx-3');
+  element.innerText = 'This text was inserted by JS';
+
+  
 })(jQuery); // End of use strict
