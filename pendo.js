@@ -20,7 +20,7 @@
                 },
 
                 account: {
-                    id:           'ACCOUNT_001' // Highly recommended
+                    id:           'ACCOUNT_001', // Highly recommended
                     name:           'Angus Account'
                     // name:         // Optional
                     // is_paying:    // Recommended if using Pendo Feedback
