@@ -1,3 +1,32 @@
+function generateRandomName() {
+    const boyNames = ['James', 'John', 'Robert', 'Michael', 'William', 'David', 'Joseph', 'Daniel', 'Matthew', 'Christopher', 'Andrew', 'Anthony', 'Joshua', 'Ryan', 'Nicholas', 'Tyler', 'Alexander', 'Nathan', 'Samuel', 'Christian', 'Benjamin', 'Elijah', 'Brandon', 'Justin', 'Jackson', 'Austin', 'Kevin', 'Ethan', 'Aiden', 'Logan'];
+    const girlNames = ['Emily', 'Emma', 'Olivia', 'Isabella', 'Sophia', 'Ava', 'Mia', 'Madison', 'Elizabeth', 'Abigail', 'Charlotte', 'Ella', 'Amelia', 'Sofia', 'Harper', 'Grace', 'Avery', 'Hannah', 'Lily', 'Chloe', 'Evelyn', 'Victoria', 'Aria', 'Scarlett', 'Zoey', 'Addison', 'Lillian', 'Natalie', 'Brooklyn', 'Leah'];
+
+    const isBoy = Math.random() < 0.5; // Randomly decide whether to choose a boy or girl name
+    const names = isBoy ? boyNames : girlNames;
+    const randomName = names[Math.floor(Math.random() * names.length)];
+
+    return randomName;
+}
+
+const randomName = generateRandomName();
+console.log(randomName);
+
+
+function generateRandomEmail() {
+    const animals = ['dog', 'cat', 'bird', 'rabbit', 'elephant', 'lion', 'tiger', 'bear', 'monkey', 'penguin', 'dolphin', 'whale', 'cheetah', 'giraffe', 'koala', 'zebra', 'fox', 'wolf', 'panda', 'deer', 'horse', 'kangaroo', 'otter', 'squirrel'];
+    const domains = ['example.com', 'gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 'aol.com'];
+    
+    const randomAnimal = animals[Math.floor(Math.random() * animals.length)];
+    const randomDomain = domains[Math.floor(Math.random() * domains.length)];
+    
+    const randomNumber = Math.floor(Math.random() * 10000); // Appending a random number to ensure uniqueness
+    
+    return `${randomAnimal}${randomNumber}@${randomDomain}`;
+}
+
+const randomEmail = generateRandomEmail();
+
 (function(apiKey){
     function generateRandomId() {
         const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -22,8 +51,8 @@
         pendo.initialize({
             visitor: {
                 id:              randomVisitorId ,  // Replaced with random visitor ID
-                first_name: 'Angus'
-                // email:        // Recommended if using Pendo Feedback, or NPS Email
+                first_name: randomName,
+                email:        randomEmail
                 // full_name:    // Recommended if using Pendo Feedback
                 // role:         // Optional
 
