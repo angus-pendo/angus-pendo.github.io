@@ -1,45 +1,3 @@
-function generateRandomName() {
-    const boyNames = ['James', 'John', 'Robert', 'Michael', 'William', 'David', 'Joseph', 'Daniel', 'Matthew', 'Christopher', 'Andrew', 'Anthony', 'Joshua', 'Ryan', 'Nicholas', 'Tyler', 'Alexander', 'Nathan', 'Samuel', 'Christian', 'Benjamin', 'Elijah', 'Brandon', 'Justin', 'Jackson', 'Austin', 'Kevin', 'Ethan', 'Aiden', 'Logan'];
-    const girlNames = ['Emily', 'Emma', 'Olivia', 'Isabella', 'Sophia', 'Ava', 'Mia', 'Madison', 'Elizabeth', 'Abigail', 'Charlotte', 'Ella', 'Amelia', 'Sofia', 'Harper', 'Grace', 'Avery', 'Hannah', 'Lily', 'Chloe', 'Evelyn', 'Victoria', 'Aria', 'Scarlett', 'Zoey', 'Addison', 'Lillian', 'Natalie', 'Brooklyn', 'Leah'];
-
-    const isBoy = Math.random() < 0.5; // Randomly decide whether to choose a boy or girl name
-    const names = isBoy ? boyNames : girlNames;
-    const randomName = names[Math.floor(Math.random() * names.length)];
-
-    return randomName;
-}
-
-const randomName = generateRandomName();
-console.log(randomName);
-
-
-function generateRandomEmail() {
-    const animals = ['dog', 'cat', 'bird', 'rabbit', 'elephant', 'lion', 'tiger', 'bear', 'monkey', 'penguin', 'dolphin', 'whale', 'cheetah', 'giraffe', 'koala', 'zebra', 'fox', 'wolf', 'panda', 'deer', 'horse', 'kangaroo', 'otter', 'squirrel'];
-    const domains = ['example.com', 'gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 'aol.com'];
-    
-    const randomAnimal = animals[Math.floor(Math.random() * animals.length)];
-    const randomDomain = domains[Math.floor(Math.random() * domains.length)];
-    
-    const randomNumber = Math.floor(Math.random() * 10000); // Appending a random number to ensure uniqueness
-    
-    return `${randomAnimal}${randomNumber}@${randomDomain}`;
-}
-
-const randomEmail = generateRandomEmail();
-
-(function(apiKey){
-    function generateRandomId() {
-        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-        let id = '';
-        for (let i = 0; i < 9; i++) {
-            id += characters.charAt(Math.floor(Math.random() * characters.length));
-        }
-        return id;
-    }
-
-    const randomVisitorId = generateRandomId();
-    const randomAccountId = generateRandomId();
-
     (function(p,e,n,d,o){var v,w,x,y,z;o=p[d]=p[d]||{};o._q=o._q||[];
     v=['initialize','identify','updateOptions','pageLoad','track'];for(w=0,x=v.length;w<x;++w)(function(m){
         o[m]=o[m]||function(){o._q[m===v[0]?'unshift':'push']([m].concat([].slice.call(arguments,0)));};})(v[w]);
@@ -50,9 +8,9 @@ const randomEmail = generateRandomEmail();
         // Please use Strings, Numbers, or Bools for value types.
         pendo.initialize({
             visitor: {
-                id:              randomVisitorId ,  // Replaced with random visitor ID
-                first_name: randomName,
-                email:        randomEmail
+                id:              "angus001" ,  // Replaced with random visitor ID
+                first_name: "Angus",
+                email:        "angus.yang@pendo.io"
                 // full_name:    // Recommended if using Pendo Feedback
                 // role:         // Optional
 
@@ -61,7 +19,7 @@ const randomEmail = generateRandomEmail();
             },
 
             account: {
-                id:           randomAccountId, // Replaced with random account ID
+                id:           "angusAccount001", // Replaced with random account ID
                 name:         'Angus Account'
                 // name:         // Optional
                 // is_paying:    // Recommended if using Pendo Feedback
