@@ -1,5 +1,5 @@
-<script>
-(function(p,e,n,d,o){var v,w,x,y,z;o=p[d]=p[d]||{};o._q=o._q||[];
+(function(apiKey){
+    (function(p,e,n,d,o){var v,w,x,y,z;o=p[d]=p[d]||{};o._q=o._q||[];
     v=['initialize','identify','updateOptions','pageLoad','track'];for(w=0,x=v.length;w<x;++w)(function(m){
         o[m]=o[m]||function(){o._q[m===v[0]?'unshift':'push']([m].concat([].slice.call(arguments,0)));};})(v[w]);
         y=e.createElement(n);y.async=!0;y.src='https://cdn.pendo.io/agent/static/'+apiKey+'/pendo.js';
@@ -9,9 +9,9 @@
         // Please use Strings, Numbers, or Bools for value types.
         pendo.initialize({
             visitor: {
-                id:              "angus001" ,  // Replaced with random visitor ID
-                first_name: "Angus",
-                email:        "angus.yang@pendo.io"
+                id:              'static-visitor-id',  // Static visitor ID
+                first_name:      'John',              // Static first name
+                email:           'john.doe@example.com' // Static email
                 // full_name:    // Recommended if using Pendo Feedback
                 // role:         // Optional
 
@@ -20,8 +20,8 @@
             },
 
             account: {
-                id:           "angusAccount001", // Replaced with random account ID
-                name:         'Angus Account'
+                id:              'static-account-id',  // Static account ID
+                name:            'Static Account Name' // Static account name
                 // name:         // Optional
                 // is_paying:    // Recommended if using Pendo Feedback
                 // monthly_value:// Recommended if using Pendo Feedback
@@ -34,4 +34,3 @@
             }
         });
 })('d084d4af-be6f-4e04-777d-be383c5ee49f');
-</script>
