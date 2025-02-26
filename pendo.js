@@ -12,7 +12,7 @@
                 id:              'static-visitor-id',  // Static visitor ID
                 first_name:      'John',              // Static first name
                 email:           'john.doe@example.com', // Static email
-                permissions:     'student','teacher','course creator' //example roles
+                permissions:     ['student','teacher','course creator'] //example roles
                 // full_name:    // Recommended if using Pendo Feedback
                 // role:         // Optional
 
