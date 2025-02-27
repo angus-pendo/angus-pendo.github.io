@@ -8,6 +8,8 @@
 //         // Call this whenever information about your visitors becomes available
 //         // Please use Strings, Numbers, or Bools for value types.
 //         pendo.initialize({
+//             additionalApiKeys: ['d084d4af-be6f-4e04-777d-be383c5ee49f','86219bd1-c634-4306-7547-6440086b42f2'],
+
 //             visitor: {
 //                 id:              'static-visitor-id',  // Static visitor ID
 //                 first_name:      'John',              // Static first name
@@ -36,41 +38,42 @@
 //         });
 // })('d084d4af-be6f-4e04-777d-be383c5ee49f');
 
-function loadPendo(apiKey) {
-    (function(p, e, n, d, o) {
-        var v, w, x, y, z;
-        o = p[d] = p[d] || {};
-        o._q = o._q || [];
-        v = ['initialize', 'identify', 'updateOptions', 'pageLoad', 'track'];
+(function(apiKey){
+    (function(p,e,n,d,o){
+        var v,w,x,y,z;
+        o=p[d]=p[d]||{};
+        o._q=o._q||[];
+        v=['initialize','identify','updateOptions','pageLoad','track'];
         
-        for (w = 0, x = v.length; w < x; ++w)(function(m) {
-            o[m] = o[m] || function() {
-                o._q[m === v[0] ? 'unshift' : 'push']([m].concat([].slice.call(arguments, 0)));
+        for(w=0,x=v.length;w<x;++w)(function(m){
+            o[m]=o[m]||function(){
+                o._q[m===v[0]?'unshift':'push']([m].concat([].slice.call(arguments,0)));
             };
         })(v[w]);
         
-        y = e.createElement(n);
-        y.async = !0;
-        y.src = 'https://cdn.pendo.io/agent/static/' + apiKey + '/pendo.js';
-        z = e.getElementsByTagName(n)[0];
-        z.parentNode.insertBefore(y, z);
-    })(window, document, 'script', 'pendo');
+        y=e.createElement(n);
+        y.async=!0;
+        y.src='https://cdn.pendo.io/agent/static/'+apiKey+'/pendo.js';
+        z=e.getElementsByTagName(n)[0];
+        z.parentNode.insertBefore(y,z);
+    })(window,document,'script','pendo');
 
-    // Call this whenever information about your visitors becomes available
+    // Ensure Pendo is fully loaded before initializing
     pendo.initialize({
         visitor: {
             id: 'static-visitor-id',
             first_name: 'John',
             email: 'john.doe@example.com',
-            permissions: ['student', 'teacher', 'course creator']
+            permissions: ['student','teacher','course creator']
         },
         account: {
             id: 'static-account-id',
             name: 'Static Account Name'
         }
     });
-}
 
+    // Add additional API keys separately
+    pendo.additionalApiKeys(['d084d4af-be6f-4e04-777d-be383c5ee49f', '86219bd1-c634-4306-7547-6440086b42f2']);
+    
+})('d084d4af-be6f-4e04-777d-be383c5ee49f'); // <-- You must invoke the function with a primary API key
 
-loadPendo('d084d4af-be6f-4e04-777d-be383c5ee49f');
-loadPendo('86219bd1-c634-4306-7547-6440086b42f2');
