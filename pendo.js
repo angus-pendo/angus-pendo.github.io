@@ -1,4 +1,3 @@
-<script>
 (function(apiKey){
     (function(p,e,n,d,o){var v,w,x,y,z;o=p[d]=p[d]||{};o._q=o._q||[];
     v=['initialize','identify','updateOptions','pageLoad','track'];for(w=0,x=v.length;w<x;++w)(function(m){
@@ -6,13 +5,17 @@
         y=e.createElement(n);y.async=!0;y.src='https://cdn.pendo.io/agent/static/'+apiKey+'/pendo.js';
         z=e.getElementsByTagName(n)[0];z.parentNode.insertBefore(y,z);})(window,document,'script','pendo');
 
-        // This function creates visitors and accounts in Pendo
-        // You will need to replace <visitor-id-goes-here> and <account-id-goes-here> with values you use in your app
+        // Call this whenever information about your visitors becomes available
         // Please use Strings, Numbers, or Bools for value types.
         pendo.initialize({
+
+            additionalApiKeys: ['d084d4af-be6f-4e04-777d-be383c5ee49f','86219bd1-c634-4306-7547-6440086b42f2'],
+
             visitor: {
-                id:             'test' // Required if user is logged in
-                // email:        // Recommended if using Pendo Feedback, or NPS Email
+                id:              'static-visitor-id',  // Static visitor ID
+                first_name:      'John',              // Static first name
+                email:           'john.doe@example.com', // Static email
+                permissions:     ['student','teacher','course creator'] //example roles
                 // full_name:    // Recommended if using Pendo Feedback
                 // role:         // Optional
 
@@ -21,7 +24,8 @@
             },
 
             account: {
-                id:              'test' // Highly recommended, required if using Pendo Feedback
+                id:              'static-account-id',  // Static account ID
+                name:            'Static Account Name' // Static account name
                 // name:         // Optional
                 // is_paying:    // Recommended if using Pendo Feedback
                 // monthly_value:// Recommended if using Pendo Feedback
@@ -34,4 +38,3 @@
             }
         });
 })('50a9866b-11b7-4940-6ba7-3e233fd04b8b');
-</script>
