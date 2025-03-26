@@ -21,7 +21,7 @@
             },
 
             account: {
-                id:              <account-id-goes-here> // Highly recommended, required if using Pendo Feedback
+                id:              null // Highly recommended, required if using Pendo Feedback
                 // name:         // Optional
                 // is_paying:    // Recommended if using Pendo Feedback
                 // monthly_value:// Recommended if using Pendo Feedback
