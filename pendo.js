@@ -12,10 +12,7 @@
             additionalApiKeys: ['d084d4af-be6f-4e04-777d-be383c5ee49f','86219bd1-c634-4306-7547-6440086b42f2'],
 
             visitor: {
-                id:              'static-visitor-id',  // Static visitor ID
-                first_name:      'John',              // Static first name
-                email:           'john.doe@example.com', // Static email
-                permissions:     ['student','teacher','course creator'] //example roles
+                id:              'static-visitor-id'  // Static visitor ID
                 // full_name:    // Recommended if using Pendo Feedback
                 // role:         // Optional
 
@@ -24,8 +21,7 @@
             },
 
             account: {
-                id:              'static-account-id',  // Static account ID
-                name:            'Static Account Name' // Static account name
+                id:              'static-account-id'  // Static account ID
                 // name:         // Optional
                 // is_paying:    // Recommended if using Pendo Feedback
                 // monthly_value:// Recommended if using Pendo Feedback
