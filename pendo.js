@@ -9,8 +9,6 @@
         // Please use Strings, Numbers, or Bools for value types.
         pendo.initialize({
 
-            additionalApiKeys: ['d084d4af-be6f-4e04-777d-be383c5ee49f','86219bd1-c634-4306-7547-6440086b42f2'],
-
             visitor: {
                 id:              'static-visitor-id'  // Static visitor ID
                 // full_name:    // Recommended if using Pendo Feedback
