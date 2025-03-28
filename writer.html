@@ -26,6 +26,8 @@
       display: flex;
       flex-direction: column;
       min-height: 100vh;
+      margin: 0;
+      width: 100%;
     }
     .collapse-toggle {
       cursor: pointer;
@@ -69,67 +71,39 @@
 </head>
 
 <body id="page-top">
-  <!-- Page Wrapper -->
-  <div id="wrapper">
-
-    <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-      <!-- Keep the existing sidebar content from the original HTML -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fa fa-solid fa-hippo"></i>
-        </div>
-        <div class="sidebar-brand-text mx-3">TAM Demo</div>
-      </a>
-
-      <!-- Rest of the sidebar navigation items from the original HTML -->
-      <li class="nav-item active">
-        <a class="nav-link" href="index.html">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span>
-        </a>
-      </li>
-      
-      <!-- Include other sidebar items from the original HTML -->
-      <!-- ... -->
-    </ul>
-    <!-- End of Sidebar -->
-
-    <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column">
-      <!-- Top Content Container -->
-      <div id="top-content-container">
-        <!-- Collapse Toggle -->
-        <div class="collapse-toggle" onclick="toggleTopContent()">
-          Collapse Slides
-        </div>
-
-        <!-- Top Content Area -->
-        <div id="top-content">
-          <h2>Top Content Area</h2>
-          <p>This is a full-width top section replacing the previous main content.</p>
-        </div>
+  <!-- Content Wrapper -->
+  <div id="content-wrapper" class="d-flex flex-column">
+    <!-- Top Content Container -->
+    <div id="top-content-container">
+      <!-- Collapse Toggle -->
+      <div class="collapse-toggle" onclick="toggleTopContent()">
+        Collapse Slides
       </div>
 
-      <!-- Bottom Content Area -->
-      <div id="bottom-content">
-        <h2>Bottom Content Area</h2>
-        <p>This is a full-width bottom section.</p>
+      <!-- Top Content Area -->
+      <div id="top-content">
+        <h2>Top Content Area</h2>
+        <p>This is a full-width top section replacing the previous main content.</p>
       </div>
-
-      <!-- Footer -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2019</span>
-          </div>
-        </div>
-      </footer>
-      <!-- End of Footer -->
     </div>
-    <!-- End of Content Wrapper -->
+
+    <!-- Bottom Content Area -->
+    <div id="bottom-content">
+      <h2>Bottom Content Area</h2>
+      <p>This is a full-width bottom section.</p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="sticky-footer bg-white">
+      <div class="container my-auto">
+        <div class="copyright text-center my-auto">
+          <span>Copyright &copy; Your Website 2019</span>
+        </div>
+      </div>
+    </footer>
+    <!-- End of Footer -->
   </div>
-  <!-- End of Page Wrapper -->
+  <!-- End of Content Wrapper -->
 
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
