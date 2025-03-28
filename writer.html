@@ -27,10 +27,30 @@
       flex-direction: column;
       min-height: 100vh;
     }
+    .collapse-toggle {
+      cursor: pointer;
+      padding: 10px;
+      background-color: black;
+      color: white;
+      text-align: center;
+      font-weight: bold;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 10;
+    }
+    .collapse-toggle:hover {
+      background-color: #333;
+    }
+    #top-content-container {
+      position: relative;
+      width: 100%;
+    }
     #top-content {
       width: 100%;
       background-color: #f8f9fc;
-      padding: 20px;
+      padding: 50px 20px 20px;
       box-sizing: border-box;
       transition: max-height 0.3s ease-out;
       overflow: hidden;
@@ -38,17 +58,6 @@
     #top-content.collapsed {
       max-height: 0;
       padding: 0 20px;
-    }
-    .collapse-toggle {
-      cursor: pointer;
-      padding: 10px;
-      background-color: #4e73df;
-      color: white;
-      text-align: center;
-      border-radius: 0 0 5px 5px;
-    }
-    .collapse-toggle:hover {
-      background-color: #2e59d9;
     }
     #bottom-content {
       width: 100%;
@@ -88,15 +97,18 @@
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
-      <!-- Top Content Area -->
-      <div id="top-content">
-        <h2>Top Content Area</h2>
-        <p>This is a full-width top section replacing the previous main content.</p>
-      </div>
-      
-      <!-- Collapse Toggle -->
-      <div class="collapse-toggle" onclick="toggleTopContent()">
-        Toggle Top Content
+      <!-- Top Content Container -->
+      <div id="top-content-container">
+        <!-- Collapse Toggle -->
+        <div class="collapse-toggle" onclick="toggleTopContent()">
+          Collapse Slides
+        </div>
+
+        <!-- Top Content Area -->
+        <div id="top-content">
+          <h2>Top Content Area</h2>
+          <p>This is a full-width top section replacing the previous main content.</p>
+        </div>
       </div>
 
       <!-- Bottom Content Area -->
