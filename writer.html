@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Modified Layout</title>
+  <title>Modified Layout with Collapsible Top Content</title>
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z7865Z3JTJ"></script>
@@ -32,6 +32,23 @@
       background-color: #f8f9fc;
       padding: 20px;
       box-sizing: border-box;
+      transition: max-height 0.3s ease-out;
+      overflow: hidden;
+    }
+    #top-content.collapsed {
+      max-height: 0;
+      padding: 0 20px;
+    }
+    .collapse-toggle {
+      cursor: pointer;
+      padding: 10px;
+      background-color: #4e73df;
+      color: white;
+      text-align: center;
+      border-radius: 0 0 5px 5px;
+    }
+    .collapse-toggle:hover {
+      background-color: #2e59d9;
     }
     #bottom-content {
       width: 100%;
@@ -76,6 +93,11 @@
         <h2>Top Content Area</h2>
         <p>This is a full-width top section replacing the previous main content.</p>
       </div>
+      
+      <!-- Collapse Toggle -->
+      <div class="collapse-toggle" onclick="toggleTopContent()">
+        Toggle Top Content
+      </div>
 
       <!-- Bottom Content Area -->
       <div id="bottom-content">
@@ -106,6 +128,14 @@
 
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.min.js"></script>
+
+  <!-- Collapsible Top Content Script -->
+  <script>
+    function toggleTopContent() {
+      const topContent = document.getElementById('top-content');
+      topContent.classList.toggle('collapsed');
+    }
+  </script>
 
   <!-- Intercom Script -->
   <script>
