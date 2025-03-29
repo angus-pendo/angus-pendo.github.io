@@ -68,13 +68,14 @@
       padding: 20px;
       box-sizing: border-box;
       text-align: center;
+      /* Increased minimum height to accommodate the iframe */
+      min-height: 1050px;
     }
     #writerslide, #writer {
       display: block;
       margin-left: auto;
       margin-right: auto;
       max-width: 100%;
-      height: auto;
     }
     #writerslide {
       height: 650px;
@@ -82,13 +83,16 @@
       max-width: 1200px;
     }
     #writer {
-      height: 1000px;
       width: 100%;
       max-width: 1800px;
+      height: 1000px; /* Original height as requested */
       background: white;
       border-radius: 8px;
       border: none;
       box-shadow: 5px 5px 24px 0px #0000001F;
+    }
+    footer {
+      margin-top: auto;
     }
   </style>
 </head>
