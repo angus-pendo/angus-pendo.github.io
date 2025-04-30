@@ -14,14 +14,12 @@
       flex-direction: column;
       height: 100vh;
     }
-
     .iframe-wrapper {
       flex: 1;
       background-color: pink;
       padding: 20px;
       box-sizing: border-box;
     }
-
     iframe {
       width: 100%;
       height: 100%;
@@ -29,7 +27,6 @@
       border-radius: 10px;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     }
-
     .feedback-container {
       padding: 1rem;
       background-color: #ffffff;
@@ -37,7 +34,6 @@
       display: flex;
       flex-direction: column;
     }
-
     textarea {
       resize: vertical;
       min-height: 80px;
@@ -48,7 +44,6 @@
       font-family: inherit;
       margin-bottom: 1rem;
     }
-
     button {
       align-self: flex-start;
       background-color: #e23d3c;
@@ -60,23 +55,19 @@
       cursor: pointer;
       transition: background-color 0.2s ease;
     }
-
     button:hover {
       background-color: #c83231;
     }
   </style>
 </head>
 <body>
-
   <div class="iframe-wrapper">
     <iframe src="https://portal.pendo.io/p/d084d4af-be6f-4e04-777d-be383c5ee49f/M_CXXWbVvB6y1-3pH89G9Jp9o_M?container=embed" allowfullscreen></iframe>
   </div>
-
   <div class="feedback-container">
     <textarea placeholder="Leave your feedback here..."></textarea>
     <button type="button">Submit Feedback</button>
   </div>
-
   <!-- Intercom Script -->
   <script>
     (function(){
@@ -109,9 +100,85 @@
       }
     })();
   </script>
-
+  <!-- Tab Interaction Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get the iframe element
+      const iframe = document.querySelector('iframe');
+      
+      // Wait for iframe to load
+      iframe.addEventListener('load', function() {
+        // Try to access the iframe content
+        try {
+          const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+          
+          // Set up a mutation observer to detect changes within the iframe
+          const observer = new MutationObserver(function(mutations) {
+            // Check if #portalTab-0 is selected (has some active class or attribute)
+            const tab0 = iframeDocument.querySelector('#portalTab-0');
+            const tab1 = iframeDocument.querySelector('#portalTab-1');
+            
+            // Look for the feedback button
+            const feedbackButton = iframeDocument.querySelector('[data-cy="create-feedback-button"]');
+            
+            // Check for an active class or attribute that indicates selection
+            // You may need to adjust this based on how Pendo marks active tabs
+            if (tab0 && tab0.classList.contains('active')) {
+              // Create or show the text block if it doesn't exist
+              let textBlock = iframeDocument.querySelector('.custom-text-block');
+              if (!textBlock) {
+                textBlock = document.createElement('div');
+                textBlock.className = 'custom-text-block';
+                textBlock.textContent = 'This is new text generated via Javascript';
+                textBlock.style.padding = '15px';
+                textBlock.style.backgroundColor = '#f0f0f0';
+                textBlock.style.margin = '10px 0';
+                textBlock.style.borderRadius = '5px';
+                
+                // Insert after the tab or in an appropriate location
+                tab0.parentNode.insertBefore(textBlock, tab0.nextSibling);
+              } else {
+                textBlock.style.display = 'block';
+              }
+            } else {
+              // Hide the text block if tab0 is not active
+              const textBlock = iframeDocument.querySelector('.custom-text-block');
+              if (textBlock) {
+                textBlock.style.display = 'none';
+              }
+            }
+            
+            // Handle tab1 and feedback button visibility
+            if (tab1 && tab1.classList.contains('active') && feedbackButton) {
+              feedbackButton.style.display = 'none';
+            } else if (feedbackButton) {
+              feedbackButton.style.display = '';
+            }
+          });
+          
+          // Observe changes to the iframe document body
+          observer.observe(iframeDocument.body, {
+            childList: true,
+            subtree: true,
+            attributes: true,
+            attributeFilter: ['class']
+          });
+          
+          // Set up click event listeners for the tabs
+          const tabs = iframeDocument.querySelectorAll('#portalTab-0, #portalTab-1');
+          tabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+              // The mutation observer will handle the changes
+            });
+          });
+          
+        } catch (e) {
+          console.error('Cannot access iframe content. This might be due to cross-origin restrictions:', e);
+        }
+      });
+    });
+  </script>
   <!-- Pendo Script -->
   <script type="text/javascript" src="/pendo.js"></script>
-
 </body>
 </html>
