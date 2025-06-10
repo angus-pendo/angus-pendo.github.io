@@ -33,6 +33,7 @@
 //         });
 // })('d084d4af-be6f-4e04-777d-be383c5ee49f');
 
+<script>
 (function(apiKey){
     function getRandomId() {
         return 'visitor_' + Math.random().toString(36).substring(2, 15);
@@ -55,6 +56,19 @@
         return Array.from({ length: count }, () => features[Math.floor(Math.random() * features.length)]);
     }
 
+    function getRandomAccountId() {
+        const accountIds = [
+            '005FWxqzkDtLDcfVEA329kNKw6sY7FxSirAvYIxL',
+            '00T77UBtd71kO5G7W9AS8Fs17vwDucAiNZele2K1',
+            '023b4d60-fa5c-012d-f7b3-123135003972',
+            '0445dc50-fa5c-012d-f7b3-123135003972',
+            '04uJ7dUuAo3XvmhubEaPPPRaeE0tNlbDY5NQvBiQ',
+            '053bae30-fa5c-012d-f7b3-123135003972',
+            '05z0GIjEcr92TROU2uE8mI40mf9V5hDptbTXB5PL'
+        ];
+        return accountIds[Math.floor(Math.random() * accountIds.length)];
+    }
+
     (function(p,e,n,d,o){
         var v,w,x,y,z;o=p[d]=p[d]||{};o._q=o._q||[];
         v=['initialize','identify','updateOptions','pageLoad','track'];
@@ -69,7 +83,7 @@
     })(window,document,'script','pendo');
 
     const visitorId = getRandomId();
-    const accountId = 'account_' + Math.random().toString(36).substring(2, 10);
+    const accountId = getRandomAccountId();
 
     pendo.initialize({
         visitor: {
@@ -86,3 +100,4 @@
     });
 
 })('10d9c187-a80c-4802-6f39-db3af17721f9');
+</script>
