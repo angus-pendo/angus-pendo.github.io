@@ -33,7 +33,7 @@
 //         });
 // })('d084d4af-be6f-4e04-777d-be383c5ee49f');
 
-<script>
+
 (function(apiKey){
     function getRandomId() {
         return 'visitor_' + Math.random().toString(36).substring(2, 15);
@@ -100,4 +100,3 @@
     });
 
 })('10d9c187-a80c-4802-6f39-db3af17721f9');
-</script>
